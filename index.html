@@ -5,9 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jaci's Last Supper — One last taste before forever.</title>
 <meta name="description" content="One last taste before forever. 9—12 October. Top secret.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mrioskoke-spec.github.io/jacis-last-supper/">
 <meta property="og:title" content="Jaci's Last Supper">
-<meta property="og:description" content="One last taste before forever. 9—12 October.">
-<meta property="og:image" content="img/f-bw.jpg">
+<meta property="og:description" content="One last taste before forever. 9 — 12 October · Top Secret">
+<meta property="og:image" content="https://mrioskoke-spec.github.io/jacis-last-supper/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1c0407">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
@@ -70,6 +76,111 @@ body::after{
 }
 .stamp img{width:100%;height:100%;object-fit:cover}
 
+/* HINTS – explicit instructions */
+.hint{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border:1px dashed currentColor;border-radius:999px;line-height:1.3}
+.hint b{font-weight:400;display:inline-block;animation:nudge 1.6s ease-in-out infinite}
+.hint.down b{animation-name:nudgeDown}
+@keyframes nudge{50%{transform:translateX(5px)}}
+@keyframes nudgeDown{50%{transform:translateY(4px)}}
+.hint.dark{color:var(--red)}
+.hint.light{color:var(--blush)}
+.only-touch{display:none}
+@media (hover:none),(max-width:760px){.only-touch{display:inline-flex}.only-mouse{display:none}}
+
+/* PHOTO ROLL between sections */
+.roll{background:var(--oxblood);padding:clamp(40px,6vw,70px) 0;text-align:center}
+.roll .hint{margin-bottom:26px}
+.roll-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px var(--gutter) 24px;scrollbar-width:none}
+.roll-track::-webkit-scrollbar{display:none}
+.roll-track .stamp-wrap{flex:0 0 clamp(150px,18vw,230px);scroll-snap-align:center;cursor:zoom-in}
+.roll-track .stamp{aspect-ratio:4/5;--r:5px}
+.roll-track .stamp img{filter:grayscale(1) contrast(1.12)}
+
+/* THE DAYS – three themes */
+.days{background:var(--paper);color:var(--ink);padding:clamp(80px,10vw,130px) var(--gutter)}
+.days-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,70px)}
+.days-head h2{font-size:clamp(52px,8vw,118px);text-transform:uppercase;color:var(--burgundy);line-height:.86;margin-top:14px}
+.days-head h2 em{text-transform:none;color:var(--red)}
+.days-head p{max-width:34ch;font-size:18px;color:#5a3a3d}
+.day-list{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px)}
+.day{position:relative;padding:clamp(26px,2.6vw,36px);display:flex;flex-direction:column;gap:16px;min-height:100%}
+.day .num{font-family:var(--display);font-size:clamp(70px,7vw,110px);line-height:.8;font-style:italic}
+.day .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.day h3{font-family:var(--display);font-weight:400;font-size:clamp(32px,3vw,44px);line-height:.95}
+.day h3 em{font-style:italic}
+.day p{font-size:17px;line-height:1.5}
+.day ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.day li{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border:1px solid currentColor;border-radius:999px}
+.day .stamp-wrap{position:absolute;right:clamp(14px,2vw,26px);top:clamp(-30px,-2vw,-18px);width:clamp(96px,9vw,130px);cursor:zoom-in}
+.day .stamp{aspect-ratio:4/5;--r:4px}
+.day .stamp img{filter:grayscale(1) contrast(1.15)}
+.day.d-1{background:var(--cream);color:var(--burgundy);border:1px solid rgba(74,10,18,.25)}
+.day.d-1 .num,.day.d-1 .k{color:var(--red)}
+.day.d-1 p{color:#5a3a3d}
+.day.d-2{background:var(--red);color:var(--cream)}
+.day.d-2 .num{color:var(--blush)}
+.day.d-3{background:#0b0606;color:var(--cream)}
+.day.d-3 .num{color:var(--cream)}
+.day.d-3 h3 em{color:var(--blush)}
+.day.d-4{grid-column:1/-1;background:var(--burgundy);color:var(--cream);text-decoration:none;background-image:radial-gradient(60% 90% at 85% 50%,rgba(140,22,38,.6),transparent)}
+.day.d-4 .num{color:var(--blush)}
+.day.d-4 h3{font-size:clamp(44px,5vw,76px);text-transform:uppercase}
+.day.d-4 h3 em{text-transform:none;color:var(--blush)}
+.day.d-4 .go{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--cream);color:var(--burgundy);padding:10px 14px}
+.day.d-4 .stamp-wrap{width:clamp(110px,12vw,170px)}
+.day .note{font-family:var(--display);font-style:italic;font-size:22px;color:var(--blush);border-top:1px solid rgba(239,231,218,.25);padding-top:14px}
+@media (max-width:900px){.day-list{grid-template-columns:1fr;gap:40px}.day{padding-right:150px}}
+.swipe-ui{display:none}
+@media (max-width:760px){
+  .day-list{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1*var(--gutter));padding:34px var(--gutter) 10px;scrollbar-width:none}
+  .day-list::-webkit-scrollbar{display:none}
+  .day{flex:0 0 84%;scroll-snap-align:center;padding:30px 22px 24px;min-height:440px}
+  .day.d-4{grid-column:auto}
+  .day .stamp-wrap{width:92px;top:-24px;right:16px}
+  .day h3{font-size:34px}
+  .day.d-4 h3{font-size:44px}
+  .swipe-ui{display:flex;flex-direction:column;align-items:center;gap:14px;margin-bottom:6px}
+  .dots{display:flex;gap:8px;align-items:center}
+  .dots i{width:8px;height:8px;border-radius:50%;background:rgba(74,10,18,.25);transition:all .3s}
+  .dots i.on{width:26px;border-radius:5px;background:var(--red)}
+  .dots span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-left:8px}
+}
+
+/* MOBILE BOTTOM NAV */
+.mnav{display:none}
+@media (max-width:760px){
+  .bar{display:none}
+  .mnav{display:block;position:fixed;left:10px;right:10px;bottom:10px;z-index:80;background:rgba(28,4,7,.94);backdrop-filter:blur(8px);border:1px solid rgba(239,231,218,.18);border-radius:16px;padding:8px 10px 10px}
+  .mnav small{display:block;text-align:center;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blush);margin-bottom:6px}
+  .mnav ul{display:grid;grid-template-columns:repeat(4,1fr);list-style:none;gap:4px}
+  .mnav a.on{background:var(--red);color:var(--cream)}
+  .mnav a{display:block;transition:background .3s;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--cream);padding:9px 2px;border-radius:10px;background:rgba(239,231,218,.07)}
+  body{padding-bottom:84px}
+  .slogan-band.cream,.ghost-line,.wardrobe .swatches,.details-head .script{display:none}
+  .wardrobe dl{grid-template-columns:1fr 1fr}
+  .stamps{grid-template-columns:repeat(3,1fr);gap:12px}
+  .stamps .stamp{--r:4px}
+  .strip-box{padding-bottom:40px}
+}
+
+/* INTRO POP-UP */
+.intro{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:20px;background:rgba(20,3,6,.82);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .5s}
+.intro.open{opacity:1;pointer-events:auto}
+.intro-card{position:relative;width:min(370px,100%);background:var(--paper);color:var(--ink);text-align:center;padding:26px 22px 24px;border-radius:4px;transform:translateY(40px) rotate(-2deg) scale(.92);transition:transform .7s cubic-bezier(.2,1.4,.3,1)}
+.intro.open .intro-card{transform:none}
+.intro .x{position:absolute;right:10px;top:8px;background:none;border:0;font-size:22px;color:var(--wine);cursor:pointer;padding:6px 10px}
+.intro .stamp-wrap{width:72%;margin:0 auto;--rot:-4deg;animation:wobble 3s ease-in-out infinite}
+@keyframes wobble{50%{transform:rotate(3deg) scale(1.02)}}
+.intro .stamp{aspect-ratio:4/5}
+.intro .sticker{position:absolute;left:8px;top:38%;background:var(--red);color:var(--cream);font-family:var(--display);font-style:italic;font-size:20px;padding:6px 12px;transform:rotate(-10deg);box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.intro .sticker2{position:absolute;right:6px;top:16%;font-family:var(--script);font-size:40px;color:var(--red);transform:rotate(12deg)}
+.intro h2{font-family:var(--display);font-weight:400;font-size:38px;line-height:.95;color:var(--burgundy);margin-top:22px}
+.intro h2 em{color:var(--red)}
+.intro p{font-size:16px;color:#5a3a3d;margin:10px 0 18px}
+.intro .go{display:block;width:100%;background:var(--red);color:var(--cream);border:0;padding:15px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(140,22,38,.18)}}
+.intro .later{display:block;width:100%;margin-top:12px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--wine);background:none;border:0;cursor:pointer;text-decoration:underline}
+
 /* SLOGAN BANDS */
 .slogan-band{overflow:hidden;white-space:nowrap;position:relative;z-index:6}
 .slogan-band .track{display:inline-flex;animation:marquee 40s linear infinite}
@@ -111,6 +222,7 @@ nav .logo small{display:block;font-family:var(--mono);font-size:8px;letter-spaci
 .name .it{font-style:italic;color:var(--blush)}
 .hero-tag{font-family:var(--display);font-style:italic;font-size:clamp(28px,3.4vw,50px);line-height:1;color:var(--blush);margin-top:clamp(14px,2vw,26px)}
 .hero-when{font-family:var(--display);font-size:clamp(20px,2vw,28px);letter-spacing:.08em;text-transform:uppercase;margin-top:clamp(34px,4vw,54px)}
+.hero-sum{margin-top:14px;color:var(--blush)}
 .hero-when i{font-style:normal;color:var(--red);margin:0 .6em}
 .hero .cta{display:inline-block;margin:28px auto clamp(50px,6vw,80px);padding:12px 22px;border:1px solid rgba(239,231,218,.4);text-decoration:none;transition:background .3s,color .3s}
 .hero .cta:hover{background:var(--cream);color:var(--burgundy)}
@@ -308,7 +420,9 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(28,4,7,.95);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .45s;padding:24px;cursor:zoom-out}
 .lb.open{opacity:1;pointer-events:auto}
-.lb img{max-height:88vh;max-width:92vw;object-fit:contain}
+.lb img{max-height:80vh;max-width:92vw;object-fit:contain}
+.lb{grid-template-rows:1fr auto;gap:16px}
+.lb .close{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blush)}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
@@ -340,9 +454,9 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
 </div>
 
 <nav>
-  <ul class="mono"><li><a href="#details">Detalles</a></li><li><a href="#concept">Concepto</a></li></ul>
+  <ul class="mono"><li><a href="#details">Detalles</a></li><li><a href="#days">Los 4 looks</a></li></ul>
   <a href="#top" class="logo">Jaci's Last Supper<small>9 — 12 Oct</small></a>
-  <ul class="mono"><li><a href="#dress">Dress code</a></li><li><a href="#table">Invitadas</a></li></ul>
+  <ul class="mono"><li><a href="#dress">Última cena</a></li><li><a href="#table">Invitadas</a></li></ul>
 </nav>
 
 <!-- HERO -->
@@ -353,7 +467,9 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
   </div>
   <p class="hero-tag rv d2">One last taste before forever.</p>
   <p class="hero-when rv d3">9 — 12 October<i>·</i>Top Secret</p>
-  <a class="cta mono rv d3" href="#details">Ver la invitación ↓</a>
+  <p class="hero-sum mono rv d3">4 días · 4 looks · 1 última cena</p>
+  <a class="cta mono rv d3" href="#details">👉 Toca aquí para ver la invitación</a>
+  <p class="mono rv d3" style="margin:-50px 0 50px;color:rgba(239,231,218,.55)">o desliza hacia abajo ↓</p>
 </header>
 
 <!-- DETAILS -->
@@ -400,15 +516,31 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
         </div>
       </div>
 
-      <a class="card c-dress rv d1" href="#dress">
-        <div class="top"><span class="k">Dress code</span><span class="go">Ver inspiración ↓</span></div>
-        <div class="dc burg"><b>Burgundy</b><small>Vino, cabernet</small></div>
+      <a class="card c-dress rv d1" href="#days">
+        <div class="top"><span class="k">Looks · uno por día</span><span class="go">👉 Toca aquí: ver los 4 looks</span></div>
+        <div class="dc burg"><b>Burgundy</b><small>Última cena · vino</small></div>
         <div class="dc black"><b>Black</b><small>Negro total</small></div>
         <div class="dc lace"><b><em>Lace</em></b><small>Encaje, transparencias</small></div>
       </a>
     </div>
   </div>
 </section>
+
+<!-- PHOTO ROLL -->
+<div class="roll">
+  <span class="hint light"><span class="only-touch">Desliza</span><span class="only-mouse">Desplázate</span> para ver más fotos <b>→</b></span>
+  <div class="roll-track">
+    <div class="stamp-wrap" style="--rot:-3deg"><div class="stamp"><img src="img/f-group.jpg" alt="Grupo de amigas" loading="lazy"></div></div>
+    <div class="stamp-wrap" style="--rot:2deg"><div class="stamp"><img src="img/f-mirror.jpg" alt="Amigas frente al espejo" loading="lazy"></div></div>
+    <div class="stamp-wrap" style="--rot:-1.5deg"><div class="stamp"><img src="img/f-lying.jpg" alt="Jaci y amiga" loading="lazy"></div></div>
+    <div class="stamp-wrap" style="--rot:3deg"><div class="stamp"><img src="img/f-neon.jpg" alt="Jaci bajo luz de neón" loading="lazy"></div></div>
+    <div class="stamp-wrap" style="--rot:-2deg"><div class="stamp"><img src="img/f-table.jpg" alt="Cena entre amigas" loading="lazy"></div></div>
+    <div class="stamp-wrap" style="--rot:2.5deg"><div class="stamp"><img src="img/f-duo.jpg" alt="Jaci y amiga" loading="lazy"></div></div>
+    <div class="stamp-wrap" style="--rot:-3deg"><div class="stamp"><img src="img/f-hats.jpg" alt="Amigas con sombreros" loading="lazy"></div></div>
+    <div class="stamp-wrap" style="--rot:1.5deg"><div class="stamp"><img src="img/f-bw.jpg" alt="Amigas en la mesa" loading="lazy"></div></div>
+  </div>
+  <span class="mono" style="color:rgba(239,231,218,.55)">Toca una foto para verla en grande</span>
+</div>
 
 <div class="slogan-band red" aria-label="One last taste before forever">
   <div class="track" aria-hidden="true"><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span></div>
@@ -424,12 +556,66 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
         <h2>The Last Supper</h2>
         <span class="orn">✦ ✦ ✦</span>
         <p>La despedida de Jaci es su última cena antes del matrimonio: una noche privada, oscura y elegante, como una cena secreta.</p>
-        <p>Una mesa larga, velas que se derriten despacio y copas que no se quedan vacías. Nada de rosado ni coronas.</p>
+        <p>Son cuatro días y cada uno tiene su look. El último es la gran cena: mesa larga, velas y copas que no se quedan vacías.</p>
         <div class="hand"><span>— ¿Una última?</span><span>— Siempre una última.</span></div>
         <p class="tagline">One last taste before forever.</p>
         <p class="mono" style="color:var(--wine)">9 — 12 October · Top Secret</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- THE DAYS -->
+<section class="days" id="days">
+  <div class="wrap">
+    <div class="days-head">
+      <div>
+        <p class="sec-label rv">03 — Un look por día</p>
+        <h2 class="display rv d1">4 días,<br>4 <em>looks</em></h2>
+      </div>
+      <p class="rv d2">Cada día tiene su tema. Prepara un look para cada uno: tres días de juego y una última cena elegante.</p>
+    </div>
+    <div class="swipe-ui">
+      <span class="hint dark">Desliza para ver los 4 looks <b>→</b></span>
+      <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><span id="lookCount">Look 1 de 4</span></div>
+    </div>
+    <div class="day-list">
+      <article class="day d-1 rv">
+        <div class="stamp-wrap" style="--rot:4deg"><div class="stamp"><img src="img/f-hats.jpg" alt="Amigas con sombreros" loading="lazy"></div></div>
+        <span class="num">I.</span>
+        <span class="k">Look I de IV · Tema del día</span>
+        <h3>La peor versión de tu <em>mejor look</em></h3>
+        <p>Arma un look que podría ser increíble y arruínalo a propósito. Mientras menos sentido tenga, mejor.</p>
+        <ul><li>Vestido + pantuflas</li><li>Fiesta + calcetines deportivos</li><li>Accesorios que no combinan</li></ul>
+      </article>
+      <article class="day d-2 rv d1">
+        <div class="stamp-wrap" style="--rot:-4deg"><div class="stamp"><img src="img/f-road.jpg" alt="Jaci en el camino" loading="lazy"></div></div>
+        <span class="num">II.</span>
+        <span class="k">Look II de IV · Tema del día</span>
+        <h3>Te equivocaste <em>de evento</em></h3>
+        <p>Vienes a una despedida de soltera, pero te vestiste para otra ocasión. Cada una elige a qué evento creía que iba.</p>
+        <ul><li>Matrimonio</li><li>Clase de yoga</li><li>Entrevista de trabajo</li><li>Trekking</li><li>Pijama</li></ul>
+      </article>
+      <article class="day d-3 rv d2">
+        <div class="stamp-wrap" style="--rot:3deg"><div class="stamp"><img src="img/f-dark.jpg" alt="Tres amigas de negro" loading="lazy"></div></div>
+        <span class="num">III.</span>
+        <span class="k">Look III de IV · Tema del día</span>
+        <h3>Viudas <em>millonarias</em></h3>
+        <p>De negro, elegantes y muy dramáticas. Como si acabaran de heredar una fortuna y estuvieran tristísimas… pero listas para celebrar.</p>
+        <ul><li>Negro</li><li>Anteojos grandes</li><li>Perlas</li><li>Sombreros</li><li>Guantes</li><li>Joyas exageradas</li></ul>
+        <p class="note">La novia va de blanco.</p>
+      </article>
+      <a class="day d-4 rv d3" href="#dress">
+        <div class="stamp-wrap" style="--rot:-3deg"><div class="stamp"><img src="img/look-wine.jpg" alt="Encaje vino" loading="lazy"></div></div>
+        <span class="num">IV.</span>
+        <span class="k">Look IV de IV · La gran noche</span>
+        <h3>The <em>Last</em> Supper</h3>
+        <p>La última cena antes del para siempre. Nocturna, elegante y un poco sexy.</p>
+        <ul><li>Burgundy</li><li>Black</li><li>Lace</li></ul>
+        <span class="go">👉 Toca aquí para ver la inspiración ↓</span>
+      </a>
+    </div>
+    <p style="margin-top:28px;text-align:center"><span class="only-touch mono" style="color:var(--red)">Toca una foto para verla en grande</span><span class="only-mouse mono" style="color:var(--red)">Haz clic en una foto para verla en grande</span></p>
   </div>
 </section>
 
@@ -440,12 +626,13 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
     <path class="r2" d="M-20,88 C220,8 380,128 620,68 S980,8 1160,78 S1380,38 1470,58"/>
   </svg>
   <div class="dress-head">
-    <p class="sec-label light rv">03 — Dress code</p>
+    <p class="sec-label light rv">Look IV · Dress code de la última cena</p>
     <h2 class="display rv d1">Dress for the<br><em>Last</em> Supper</h2>
     <p class="dress-intro rv d2">Nocturno, elegante y un poco sexy. Tres palabras para elegir tu look:</p>
     <span class="pill mono rv d3">Burgundy · Black · Lace</span>
   </div>
   <div class="strip-box">
+    <p style="text-align:center;margin:-30px 0 26px"><span class="hint light only-touch">Desliza para ver más looks <b>→</b></span><span class="hint light only-mouse">Haz clic en un look para verlo en grande</span></p>
     <div class="strip">
       <figure class="rv"><img src="img/look-lace.jpg" alt="Chaqueta burdeo y falda de encaje negro" loading="lazy"><figcaption>Lace &amp; leather</figcaption></figure>
       <figure class="rv d1"><img src="img/look-wine.jpg" alt="Body de encaje vino con short negro" loading="lazy"><figcaption>Wine lace</figcaption></figure>
@@ -454,6 +641,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
       <figure class="rv d1"><img src="img/mood-1.jpg" alt="Moodboard negro y burdeo" loading="lazy"><figcaption>Moodboard</figcaption></figure>
       <figure class="rv d2"><img src="img/mood-2.jpg" alt="Paleta Cabernet" loading="lazy"><figcaption>Cabernet</figcaption></figure>
     </div>
+    <p class="only-touch mono" style="justify-content:center;width:100%;margin-top:4px;color:rgba(239,231,218,.6);position:relative;z-index:2">Toca un look para verlo en grande</p>
     <div class="ghost-line" aria-hidden="true"><span>Burgundy · Black · Lace ·</span><span>Burgundy · Black · Lace ·</span></div>
   </div>
 </section>
@@ -496,7 +684,7 @@ to every night before this one,
 and to the last one</div>
   <div class="table-head wrap">
     <div><p class="sec-label rv" style="margin-bottom:14px">04 — Las invitadas</p><h2 class="display rv">Seated at<br>the <em>table</em></h2></div>
-    <p class="rv d1">Las de siempre, para una última probada antes del para siempre. Toca una foto para verla en grande.</p>
+    <p class="rv d1">Las de siempre, para una última probada antes del para siempre.<br><span class="hint dark" style="margin-top:14px"><span class="only-touch">Toca</span><span class="only-mouse">Haz clic en</span>&nbsp;una foto para verla en grande <b>☝</b></span></p>
   </div>
   <div class="stamps wrap">
     <div class="stamp-wrap rv" style="--rot:-3deg"><div class="stamp"><img src="img/f-night.jpg" alt="Jaci y amiga de noche" loading="lazy" style="object-position:50% 0"></div></div>
@@ -514,26 +702,6 @@ and to the last one</div>
   </div>
 </section>
 
-<!-- BRIDE -->
-<section class="bride">
-  <svg class="ribbon rv" style="top:-70px" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
-    <path class="r1" d="M1470,70 C1200,130 1020,10 780,70 S420,130 240,60 S40,90 -30,50"/>
-    <path class="r2" d="M1470,68 C1200,128 1020,8 780,68 S420,128 240,58 S40,88 -30,48"/>
-  </svg>
-  <div class="bride-grid wrap">
-    <div class="portrait rv">
-      <div class="arch"><img src="img/f-night.jpg" alt="Jaci" loading="lazy" style="object-position:60% 0"></div>
-      <div class="mini stamp-wrap"><div class="stamp"><img src="img/mini-jaci.jpg" alt="Jaci de niña en la nieve" loading="lazy"></div></div>
-    </div>
-    <div>
-      <p class="sec-label light rv">La novia</p>
-      <h2 class="display rv d1" style="margin-top:18px">Jaci,<br><em>before</em><br>forever</h2>
-      <p class="rv d2">Desde la niña en la nieve hasta la novia de octubre. Una última probada de la vida de soltera, con las de siempre alrededor de la mesa.</p>
-      <p class="hand rv d3">one last taste before forever</p>
-    </div>
-  </div>
-</section>
-
 <!-- FINALE -->
 <section class="finale">
   <p class="mono rv" style="margin-bottom:clamp(30px,4vw,50px)">See you at the table</p>
@@ -548,7 +716,25 @@ and to the last one</div>
   <span>MMXXVI</span>
 </footer>
 
-<div class="lb" id="lb"><img alt=""></div>
+<div class="mnav" role="navigation" aria-label="Secciones">
+  <small>Toca para ir a una sección</small>
+  <ul><li><a href="#details">Detalles</a></li><li><a href="#days">Looks</a></li><li><a href="#dress">Cena</a></li><li><a href="#table">Fotos</a></li></ul>
+</div>
+
+<div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+  <div class="intro-card">
+    <button class="x" data-close aria-label="Cerrar">✕</button>
+    <div class="stamp-wrap"><div class="stamp"><img src="img/jaci.jpg" alt="Jaci"></div></div>
+    <span class="sticker">Jaci ✦</span>
+    <span class="sticker2" aria-hidden="true">yay!</span>
+    <h2 id="introTitle">¿Estás lista para<br>el <em>fin de semana?</em></h2>
+    <p>Jaci te espera. Fechas, looks de cada día y todo lo que tienes que saber, aquí.</p>
+    <button class="go" data-enter>👉 Toca aquí para conocer todo</button>
+    <button class="later" data-close>Cerrar y ver la página</button>
+  </div>
+</div>
+
+<div class="lb" id="lb"><img alt=""><span class="close">✕ Toca en cualquier parte para cerrar</span></div>
 
 <script>
 // Reveal on scroll
@@ -577,11 +763,39 @@ let ft; addEventListener('resize', () => { clearTimeout(ft); ft = setTimeout(fit
 
 // Lightbox
 const lb = document.getElementById('lb'), lbi = lb.querySelector('img');
-document.querySelectorAll('.stamps .stamp-wrap, .strip figure').forEach(f => f.addEventListener('click', () => {
+document.querySelectorAll('.stamps .stamp-wrap, .strip figure, .roll .stamp-wrap, .day .stamp-wrap').forEach(f => f.addEventListener('click', e => {
+  e.preventDefault(); e.stopPropagation();
   const im = f.querySelector('img'); lbi.src = im.src; lbi.alt = im.alt; lb.classList.add('open');
 }));
 lb.addEventListener('click', () => lb.classList.remove('open'));
 addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+// Intro pop-up (once per visit)
+const intro = document.getElementById('intro');
+let seen = false; try { seen = sessionStorage.getItem('introSeen') === '1'; } catch (e) {}
+if (!seen) setTimeout(() => intro.classList.add('open'), 500);
+const closeIntro = () => { intro.classList.remove('open'); try { sessionStorage.setItem('introSeen', '1'); } catch (e) {} };
+intro.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', closeIntro));
+intro.querySelector('[data-enter]').addEventListener('click', () => { closeIntro(); document.getElementById('details').scrollIntoView({ behavior: 'smooth' }); });
+intro.addEventListener('click', e => { if (e.target === intro) closeIntro(); });
+
+// Looks carousel: dots + counter
+const dl = document.querySelector('.day-list'), dots = document.querySelectorAll('.dots i'), cnt = document.getElementById('lookCount');
+dl.addEventListener('scroll', () => {
+  const cards = [...dl.children];
+  const mid = dl.scrollLeft + dl.clientWidth / 2;
+  let idx = 0, best = Infinity;
+  cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < best) { best = d; idx = i; } });
+  dots.forEach((d, i) => d.classList.toggle('on', i === idx));
+  cnt.textContent = 'Look ' + (idx + 1) + ' de 4';
+}, { passive: true });
+
+// Bottom nav highlights the current section
+const navLinks = [...document.querySelectorAll('.mnav a')];
+const navIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+}), { rootMargin: '-45% 0px -50% 0px' });
+['details', 'days', 'dress', 'table'].forEach(id => { const el = document.getElementById(id); if (el) navIO.observe(el); });
 </script>
 </body>
 </html>

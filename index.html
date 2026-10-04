@@ -285,7 +285,7 @@ nav .logo small{display:block;font-family:var(--mono);font-size:8px;letter-spaci
 .c-when .n{color:#5a3a3d}
 
 .c-who{grid-column:8/13;color:var(--cream);cursor:default}
-.c-who img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 15%;filter:grayscale(1) contrast(1.1) brightness(1.15);transition:transform 1.6s cubic-bezier(.2,.7,.1,1)}
+.c-who img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(1) contrast(1.1) brightness(1.15);transition:transform 1.6s cubic-bezier(.2,.7,.1,1)}
 .c-who:hover img{transform:scale(1.05)}
 .c-who::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(110,18,32,.35),rgba(28,4,7,.9) 88%);mix-blend-mode:multiply}
 .c-who .v{font-family:var(--display);font-size:clamp(38px,4vw,60px);line-height:.95;position:relative;z-index:2}
@@ -382,6 +382,9 @@ nav .logo small{display:block;font-family:var(--mono);font-size:8px;letter-spaci
 .stamps .stamp-wrap{cursor:zoom-in;transition:transform .6s cubic-bezier(.2,.7,.1,1)}
 .stamps .stamp-wrap:hover{transform:rotate(0deg) scale(1.04);z-index:3}
 .stamps .stamp{aspect-ratio:4/5}
+.stamps .stamp-wrap.wide{grid-column:span 2}
+.stamps .stamp-wrap.wide .stamp{aspect-ratio:auto;height:100%}
+.strip figure.wide{grid-column:span 2;aspect-ratio:auto}
 .stamps .stamp img{filter:grayscale(1) contrast(1.15)}
 .stamps .stamp-wrap:nth-child(4n+2){margin-top:40px}
 .stamps .stamp-wrap:nth-child(4n+3){margin-top:-10px}
@@ -429,6 +432,24 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
 .lb img{max-height:80vh;max-width:92vw;object-fit:contain}
 .lb{grid-template-rows:1fr auto;gap:16px}
 .lb .close{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blush)}
+
+/* NO-CROP photos: every image keeps its full frame */
+.stamp img{height:auto;object-fit:contain}
+.stamps .stamp,.roll-track .stamp,.day .stamp,.intro .stamp{aspect-ratio:auto!important}
+.stamps{display:block!important;columns:4 200px;column-gap:clamp(18px,2.4vw,34px)}
+.stamps .stamp-wrap{display:block;break-inside:avoid;margin:0 0 clamp(18px,2.4vw,34px)!important}
+.roll-track{align-items:center}
+.roll-track .stamp-wrap{flex:0 0 auto}
+.roll-track .stamp img{height:clamp(190px,24vw,290px);width:auto;max-width:none}
+.strip{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;max-width:none!important;scrollbar-width:none;align-items:flex-start;padding-bottom:20px!important}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:0 0 auto!important;aspect-ratio:auto!important;height:clamp(320px,40vw,480px);transform:none!important;scroll-snap-align:center}
+.strip img{width:auto;height:100%;object-fit:contain}
+@media (max-width:760px){
+  .stamps{columns:2;column-gap:14px}
+  .stamps .stamp-wrap{margin-bottom:14px!important}
+  .strip figure{height:min(110vw,440px)}
+}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
@@ -499,7 +520,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
       </div>
 
       <div class="card c-who rv d1">
-        <img src="img/f-night.jpg" alt="Jaci" loading="lazy">
+        <img src="img/general.jpg" alt="Todas las amigas juntas" loading="lazy">
         <span class="k">Qué</span>
         <div>
           <p class="v">La despedida<br>de <em>Jaci</em></p>
@@ -654,7 +675,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
     <span class="pill mono rv d3">Burgundy · Black · Lace</span>
   </div>
   <div class="strip-box">
-    <p style="text-align:center;margin:-30px 0 26px"><span class="hint light only-touch">Desliza para ver más looks <b>→</b></span><span class="hint light only-mouse">Haz clic en un look para verlo en grande</span></p>
+    <p style="text-align:center;margin:-30px 0 26px"><span class="hint light only-touch">Desliza para ver más looks <b>→</b></span><span class="hint light only-mouse">Desplázate hacia el lado para ver más looks <b>→</b> · Haz clic para agrandar</span></p>
     <div class="strip">
       <figure class="rv"><img src="img/look-lace.jpg" alt="Chaqueta burdeo y falda de encaje negro" loading="lazy"><figcaption>Lace &amp; leather</figcaption></figure>
       <figure class="rv d1"><img src="img/look-wine.jpg" alt="Body de encaje vino con short negro" loading="lazy"><figcaption>Wine lace</figcaption></figure>
@@ -662,6 +683,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
       <figure class="rv d3"><img src="img/look-blazer.jpg" alt="Blazer negro, encaje y joya plateada" loading="lazy"><figcaption>Silver &amp; black</figcaption></figure>
       <figure class="rv d1"><img src="img/look-toast.jpg" alt="Brindis en terciopelo rojo" loading="lazy"><figcaption>The toast</figcaption></figure>
       <figure class="rv d2"><img src="img/mood-3.jpg" alt="Referencias de noche" loading="lazy"><figcaption>After dark</figcaption></figure>
+      <figure class="rv d3"><img src="img/mood-vows.jpg" alt="Inspiración de mesa y vino" loading="lazy"><figcaption>Wine &amp; table</figcaption></figure>
       <figure class="rv d1"><img src="img/mood-1.jpg" alt="Moodboard negro y burdeo" loading="lazy"><figcaption>Moodboard</figcaption></figure>
       <figure class="rv d2"><img src="img/mood-2.jpg" alt="Paleta Cabernet" loading="lazy"><figcaption>Cabernet</figcaption></figure>
     </div>
@@ -682,7 +704,7 @@ to every night before this one,
 and to the last one</div>
   <div class="table-head wrap">
     <div><p class="sec-label rv" style="margin-bottom:14px">04 — Las invitadas</p><h2 class="display rv">Seated at<br>the <em>table</em></h2></div>
-    <p class="rv d1">Las de siempre, para una última probada antes del para siempre.<br><span class="hint dark" style="margin-top:14px"><span class="only-touch">Toca</span><span class="only-mouse">Haz clic en</span>&nbsp;una foto para verla en grande <b>☝</b></span></p>
+    <p class="rv d1">Las de siempre, para una última probada antes del para siempre.<br><span class="hint dark" style="margin-top:14px">Toca una foto para verla en grande <b>☝</b></span></p>
   </div>
   <div class="stamps wrap">
     <div class="stamp-wrap rv" style="--rot:3deg"><div class="stamp"><img src="img/mini-jaci.jpg" alt="La novia de niña en la nieve" loading="lazy"></div></div>
@@ -771,6 +793,22 @@ function fit() {
 fit();
 document.fonts && document.fonts.ready.then(fit);
 let ft; addEventListener('resize', () => { clearTimeout(ft); ft = setTimeout(fit, 120); });
+
+// Fill the last row of each grid so it never ends with blank space
+function fillGrid(grid) {
+  const items = [...grid.children];
+  items.forEach(i => i.classList.remove('wide'));
+  const cs = getComputedStyle(grid);
+  if (cs.display !== 'grid') return;
+  const cols = cs.gridTemplateColumns.split(' ').length;
+  let holes = (cols - items.length % cols) % cols;
+  // widen the last photos so they fill the gap
+  const wide = items.slice().reverse();
+  for (const it of wide) { if (holes <= 0) break; it.classList.add('wide'); holes--; }
+}
+function fillAll() { document.querySelectorAll('.stamps, .strip').forEach(fillGrid); }
+fillAll(); addEventListener('load', fillAll);
+let fg; addEventListener('resize', () => { clearTimeout(fg); fg = setTimeout(fillAll, 150); });
 
 // Lightbox
 const lb = document.getElementById('lb'), lbi = lb.querySelector('img');

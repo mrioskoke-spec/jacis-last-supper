@@ -102,7 +102,7 @@ body::after{
 .days-head h2{font-size:clamp(52px,8vw,118px);text-transform:uppercase;color:var(--burgundy);line-height:.86;margin-top:14px}
 .days-head h2 em{text-transform:none;color:var(--red)}
 .days-head p{max-width:34ch;font-size:18px;color:#5a3a3d}
-.day-list{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.6vw,22px)}
+.day-list{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,22px)}
 .day{position:relative;padding:clamp(26px,2.6vw,36px);display:flex;flex-direction:column;gap:16px;min-height:100%}
 .day .num{font-family:var(--display);font-size:clamp(70px,7vw,110px);line-height:.8;font-style:italic}
 .day .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase}
@@ -122,7 +122,11 @@ body::after{
 .day.d-3{background:#0b0606;color:var(--cream)}
 .day.d-3 .num{color:var(--cream)}
 .day.d-3 h3 em{color:var(--blush)}
-.day.d-4{grid-column:1/-1;background:var(--burgundy);color:var(--cream);text-decoration:none;background-image:radial-gradient(60% 90% at 85% 50%,rgba(140,22,38,.6),transparent)}
+.suitcase-head{display:flex;align-items:center;gap:16px;margin:clamp(60px,8vw,90px) 0 clamp(36px,5vw,50px);padding-top:clamp(30px,4vw,40px);border-top:1px solid rgba(74,10,18,.2)}
+.suitcase-head .bag{font-size:clamp(40px,5vw,60px);display:inline-block;animation:wobble 3s ease-in-out infinite}
+.suitcase-head h3{font-family:var(--display);font-weight:400;font-size:clamp(34px,4.4vw,64px);line-height:.95;color:var(--burgundy);margin-top:6px}
+.suitcase-head h3 em{color:var(--red)}
+.day.d-4{min-height:0;background:var(--burgundy);color:var(--cream);text-decoration:none;background-image:radial-gradient(60% 90% at 85% 50%,rgba(140,22,38,.6),transparent)}
 .day.d-4 .num{color:var(--blush)}
 .day.d-4 h3{font-size:clamp(44px,5vw,76px);text-transform:uppercase}
 .day.d-4 h3 em{text-transform:none;color:var(--blush)}
@@ -135,7 +139,8 @@ body::after{
   .day-list{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1*var(--gutter));padding:34px var(--gutter) 10px;scrollbar-width:none}
   .day-list::-webkit-scrollbar{display:none}
   .day{flex:0 0 84%;scroll-snap-align:center;padding:30px 22px 24px;min-height:440px}
-  .day.d-4{grid-column:auto}
+  .day.d-4{min-height:0;padding-top:40px}
+  .suitcase-head{margin-top:50px}
   .day .stamp-wrap{width:92px;top:-24px;right:16px}
   .day h3{font-size:34px}
   .day.d-4 h3{font-size:44px}
@@ -454,7 +459,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
 </div>
 
 <nav>
-  <ul class="mono"><li><a href="#details">Detalles</a></li><li><a href="#days">Los 4 looks</a></li></ul>
+  <ul class="mono"><li><a href="#details">Detalles</a></li><li><a href="#days">Los looks</a></li></ul>
   <a href="#top" class="logo">Jaci's Last Supper<small>9 — 12 Oct</small></a>
   <ul class="mono"><li><a href="#dress">Última cena</a></li><li><a href="#table">Invitadas</a></li></ul>
 </nav>
@@ -467,7 +472,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
   </div>
   <p class="hero-tag rv d2">One last taste before forever.</p>
   <p class="hero-when rv d3">9 — 12 October<i>·</i>Top Secret</p>
-  <p class="hero-sum mono rv d3">4 días · 4 looks · 1 última cena</p>
+  <p class="hero-sum mono rv d3">3 días · 1 look general · 3 looks</p>
   <a class="cta mono rv d3" href="#details">👉 Toca aquí para ver la invitación</a>
   <p class="mono rv d3" style="margin:-50px 0 50px;color:rgba(239,231,218,.55)">o desliza hacia abajo ↓</p>
 </header>
@@ -487,9 +492,9 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
     <div class="bento">
       <div class="card c-when rv">
         <span class="k">Cuándo</span>
-        <span class="script" aria-hidden="true">four nights</span>
+        <span class="script" aria-hidden="true">three days</span>
         <div class="date"><span class="num">9<i>—</i>12</span><span class="mon">October</span></div>
-        <span class="n">Reserva las fechas. Los horarios llegarán pronto.</span>
+        <span class="n">3 días. Reserva las fechas, los horarios llegarán pronto.</span>
       </div>
 
       <div class="card c-who rv d1">
@@ -517,8 +522,8 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
       </div>
 
       <a class="card c-dress rv d1" href="#days">
-        <div class="top"><span class="k">Looks · uno por día</span><span class="go">👉 Toca aquí: ver los 4 looks</span></div>
-        <div class="dc burg"><b>Burgundy</b><small>Última cena · vino</small></div>
+        <div class="top"><span class="k">Look general · The Last Supper</span><span class="go">👉 Toca aquí: ver los looks</span></div>
+        <div class="dc burg"><b>Burgundy</b><small>Vino, cabernet</small></div>
         <div class="dc black"><b>Black</b><small>Negro total</small></div>
         <div class="dc lace"><b><em>Lace</em></b><small>Encaje, transparencias</small></div>
       </a>
@@ -556,7 +561,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
         <h2>The Last Supper</h2>
         <span class="orn">✦ ✦ ✦</span>
         <p>La despedida de Jaci es su última cena antes del matrimonio: una noche privada, oscura y elegante, como una cena secreta.</p>
-        <p>Son cuatro días y cada uno tiene su look. El último es la gran cena: mesa larga, velas y copas que no se quedan vacías.</p>
+        <p>Son 3 días: hay un look general para todo el finde y un look con tema para cada día. Mesa larga, velas y copas que no se quedan vacías.</p>
         <div class="hand"><span>— ¿Una última?</span><span>— Siempre una última.</span></div>
         <p class="tagline">One last taste before forever.</p>
         <p class="mono" style="color:var(--wine)">9 — 12 October · Top Secret</p>
@@ -565,55 +570,63 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
   </div>
 </section>
 
-<!-- THE DAYS -->
+<!-- THE LOOKS -->
 <section class="days" id="days">
   <div class="wrap">
     <div class="days-head">
       <div>
-        <p class="sec-label rv">03 — Un look por día</p>
-        <h2 class="display rv d1">4 días,<br>4 <em>looks</em></h2>
+        <p class="sec-label rv">03 — Los looks</p>
+        <h2 class="display rv d1">Los looks<br>del <em>finde</em></h2>
       </div>
-      <p class="rv d2">Cada día tiene su tema. Prepara un look para cada uno: tres días de juego y una última cena elegante.</p>
+      <p class="rv d2">Primero, el look general de todo el finde. Abajo, los 3 looks (uno por día) que tienes que llevar en tu maleta.</p>
+    </div>
+
+    <a class="day d-4 rv" href="#dress">
+      <div class="stamp-wrap" style="--rot:-3deg"><div class="stamp"><img src="img/look-wine.jpg" alt="Encaje vino" loading="lazy"></div></div>
+      <span class="k">★ Look general del finde</span>
+      <h3>The <em>Last</em> Supper</h3>
+      <p>El look de todo el fin de semana: nocturno, elegante y un poco sexy.</p>
+      <ul><li>Burgundy</li><li>Black</li><li>Lace</li></ul>
+      <span class="go">👉 Toca aquí para ver la inspiración ↓</span>
+    </a>
+
+    <div class="suitcase-head rv">
+      <span class="bag" aria-hidden="true">🧳</span>
+      <div>
+        <p class="sec-label">En tu maleta · uno por día</p>
+        <h3>3 días, <em>3 looks</em></h3>
+      </div>
     </div>
     <div class="swipe-ui">
-      <span class="hint dark">Desliza para ver los 4 looks <b>→</b></span>
-      <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><span id="lookCount">Look 1 de 4</span></div>
+      <span class="hint dark">Desliza para ver los 3 looks <b>→</b></span>
+      <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><span id="lookCount">Look 1 de 3</span></div>
     </div>
     <div class="day-list">
       <article class="day d-1 rv">
         <div class="stamp-wrap" style="--rot:4deg"><div class="stamp"><img src="img/f-hats.jpg" alt="Amigas con sombreros" loading="lazy"></div></div>
-        <span class="num">I.</span>
-        <span class="k">Look I de IV · Tema del día</span>
+        <span class="num">1.</span>
+        <span class="k">Día 1 · Look 1 de 3</span>
         <h3>La peor versión de tu <em>mejor look</em></h3>
         <p>Arma un look que podría ser increíble y arruínalo a propósito. Mientras menos sentido tenga, mejor.</p>
         <ul><li>Vestido + pantuflas</li><li>Fiesta + calcetines deportivos</li><li>Accesorios que no combinan</li></ul>
       </article>
       <article class="day d-2 rv d1">
-        <div class="stamp-wrap" style="--rot:-4deg"><div class="stamp"><img src="img/f-road.jpg" alt="Jaci en el camino" loading="lazy"></div></div>
-        <span class="num">II.</span>
-        <span class="k">Look II de IV · Tema del día</span>
+        <div class="stamp-wrap" style="--rot:-4deg"><div class="stamp"><img src="img/f-road.jpg" alt="Amiga en el camino" loading="lazy"></div></div>
+        <span class="num">2.</span>
+        <span class="k">Día 2 · Look 2 de 3</span>
         <h3>Te equivocaste <em>de evento</em></h3>
         <p>Vienes a una despedida de soltera, pero te vestiste para otra ocasión. Cada una elige a qué evento creía que iba.</p>
         <ul><li>Matrimonio</li><li>Clase de yoga</li><li>Entrevista de trabajo</li><li>Trekking</li><li>Pijama</li></ul>
       </article>
       <article class="day d-3 rv d2">
         <div class="stamp-wrap" style="--rot:3deg"><div class="stamp"><img src="img/f-dark.jpg" alt="Tres amigas de negro" loading="lazy"></div></div>
-        <span class="num">III.</span>
-        <span class="k">Look III de IV · Tema del día</span>
+        <span class="num">3.</span>
+        <span class="k">Día 3 · Look 3 de 3</span>
         <h3>Viudas <em>millonarias</em></h3>
         <p>De negro, elegantes y muy dramáticas. Como si acabaran de heredar una fortuna y estuvieran tristísimas… pero listas para celebrar.</p>
         <ul><li>Negro</li><li>Anteojos grandes</li><li>Perlas</li><li>Sombreros</li><li>Guantes</li><li>Joyas exageradas</li></ul>
         <p class="note">La novia va de blanco.</p>
       </article>
-      <a class="day d-4 rv d3" href="#dress">
-        <div class="stamp-wrap" style="--rot:-3deg"><div class="stamp"><img src="img/look-wine.jpg" alt="Encaje vino" loading="lazy"></div></div>
-        <span class="num">IV.</span>
-        <span class="k">Look IV de IV · La gran noche</span>
-        <h3>The <em>Last</em> Supper</h3>
-        <p>La última cena antes del para siempre. Nocturna, elegante y un poco sexy.</p>
-        <ul><li>Burgundy</li><li>Black</li><li>Lace</li></ul>
-        <span class="go">👉 Toca aquí para ver la inspiración ↓</span>
-      </a>
     </div>
     <p style="margin-top:28px;text-align:center"><span class="only-touch mono" style="color:var(--red)">Toca una foto para verla en grande</span><span class="only-mouse mono" style="color:var(--red)">Haz clic en una foto para verla en grande</span></p>
   </div>
@@ -626,9 +639,9 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
     <path class="r2" d="M-20,88 C220,8 380,128 620,68 S980,8 1160,78 S1380,38 1470,58"/>
   </svg>
   <div class="dress-head">
-    <p class="sec-label light rv">Look IV · Dress code de la última cena</p>
+    <p class="sec-label light rv">★ Look general del finde</p>
     <h2 class="display rv d1">Dress for the<br><em>Last</em> Supper</h2>
-    <p class="dress-intro rv d2">Nocturno, elegante y un poco sexy. Tres palabras para elegir tu look:</p>
+    <p class="dress-intro rv d2">El look de todo el fin de semana. Nocturno, elegante y un poco sexy. Tres palabras para elegirlo:</p>
     <span class="pill mono rv d3">Burgundy · Black · Lace</span>
   </div>
   <div class="strip-box">
@@ -646,32 +659,6 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;paddin
   </div>
 </section>
 
-<section class="wardrobe">
-  <div class="wardrobe-grid wrap">
-    <div>
-      <p class="sec-label rv" style="margin-bottom:16px">Qué ponerse</p>
-      <h3 class="rv">Wear it <em>dark</em>,<br>wear it <em>lace</em></h3>
-      <p class="lead rv d1">Nocturna, sexy y elegante. Que se sienta como la invitada a una cena secreta, no como un disfraz.</p>
-      <p class="mono avoid rv d2">Sin rosado · sin glitter · sin coronas · sin velos</p>
-    </div>
-    <dl class="rv d1">
-      <div><dt>Siluetas</dt><dd>Vestido <em>negro</em></dd></div>
-      <div><dt>Color</dt><dd>Vestido <em>burdeo</em></dd></div>
-      <div><dt>Textura</dt><dd>Encaje &amp; <em>satín</em></dd></div>
-      <div><dt>Detalle</dt><dd><em>Transparencias</em></dd></div>
-      <div><dt>Estructura</dt><dd>Corsetería <em>sutil</em></dd></div>
-      <div><dt>Piernas</dt><dd>Medias &amp; <em>tacos</em></dd></div>
-      <div><dt>Beauty</dt><dd>Labios <em>vino</em></dd></div>
-      <div><dt>Joyas</dt><dd>Plata, <em>discreta</em></dd></div>
-    </dl>
-  </div>
-  <div class="swatches wrap rv">
-    <div class="sw" style="background:#0e0606"><b>Noir</b><small>Black</small></div>
-    <div class="sw" style="background:#3a0710"><b>Vin</b><small>Dark wine</small></div>
-    <div class="sw" style="background:#5b1a27"><b>Cabernet</b><small>19-1724 TCX</small></div>
-    <div class="sw" style="background:#efe7da;color:var(--burgundy)"><b>Ivoire</b><small>Only a touch</small></div>
-  </div>
-</section>
 
 <div class="slogan-band cream" aria-label="One last taste before forever">
   <div class="track" aria-hidden="true"><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span><span>One last taste <em>before forever.</em></span></div>
@@ -724,10 +711,10 @@ and to the last one</div>
 <div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="introTitle">
   <div class="intro-card">
     <button class="x" data-close aria-label="Cerrar">✕</button>
-    <div class="stamp-wrap"><div class="stamp"><img src="img/jaci.jpg" alt="Jaci"></div></div>
+    <div class="stamp-wrap"><div class="stamp"><img src="img/jaci.jpg" alt="La novia"></div></div>
     <span class="sticker2" aria-hidden="true">yay!</span>
     <h2 id="introTitle">¿Estás lista para<br>el <em>fin de semana?</em></h2>
-    <p>Jaci te espera. Fechas, looks de cada día y todo lo que tienes que saber, aquí.</p>
+    <p>Te esperamos. Fechas, looks y todo lo que tienes que saber, aquí.</p>
     <button class="go" data-enter>👉 Toca aquí para conocer todo</button>
     <button class="later" data-close>Cerrar y ver la página</button>
   </div>
@@ -786,7 +773,7 @@ dl.addEventListener('scroll', () => {
   let idx = 0, best = Infinity;
   cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < best) { best = d; idx = i; } });
   dots.forEach((d, i) => d.classList.toggle('on', i === idx));
-  cnt.textContent = 'Look ' + (idx + 1) + ' de 4';
+  cnt.textContent = 'Look ' + (idx + 1) + ' de 3';
 }, { passive: true });
 
 // Bottom nav highlights the current section
